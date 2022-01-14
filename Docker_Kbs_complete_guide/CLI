@@ -1,0 +1,58 @@
+docker version   -> check the version of docker
+
+
+docker run hello-world
+   -> check for hello-world in local in image cache.
+   -> if its not available, it will pull image from docker hub
+   -> docker run = docker create + docker start
+
+docker run busybox echo hi there
+docker run busybox ls
+   -> once docker starts, container will start the default run command.
+   -> to override the default command, pass the custom command
+
+docker ps
+   -> display all running containers on the machine
+   -> to validate the above command, execute this docker run busybox ping google.com
+
+docker ps --all
+   -> display all the containers ever created and executed.
+
+docker system prune
+   -> Remove all stopped containers
+
+docker logs <container_id>
+   -> get the logs from container
+   -> demo above:
+         docker create busybox echo hi there
+         docker start 52a559875ababe02913d03aec6cad2df697f282a6655c85ca69035917a949e73
+         docker logs 52a559875ababe02913d03aec6cad2df697f282a6655c85ca69035917a949e73
+
+docker stop <containerid>
+docker kill <containerid>
+   -> stop the running container id
+   -> docker run busybox ping google.com
+   -> docker ps
+   -> docker stop 70c23bf9cc59
+
+docker exec -it <containerid> <command>
+   -> submit another command to the running container
+   -> above command will be submmitted to the running container.
+   -> demo:
+        docker run redis
+        docker ps
+        docker exec -it ac4e4875eefe redis-cli
+           set myvalue 5
+           get myvalue
+
+docker exec -it <container> sh
+   -> get the command prompt in the container
+   -> docker exec -it ac4e4875eefe sh
+         redis-cli
+   -> sh will give full terminal access.
+   -> we can also run interactive (it) flag in docker run command . eg: docker run -it busybox sh
+
+
+
+CREATING CUSTOM DOCKER IMAGES:
+================================

@@ -1,0 +1,14 @@
+Install Docker:
+================
+
+- Docker comes with
+      -> Docker CLI - responsible for submitting commands
+      -> Docker Server - responsible for creating images, running containers.
+- CLI reach docker server for running the containers.
+
+Steps:
+  -> go to docker.com
+  -> signup for docker hub account
+  -> download/install docker for mac(double click the downloaded .dmg file)
+  -> login to docker
+  -> verify docker installation

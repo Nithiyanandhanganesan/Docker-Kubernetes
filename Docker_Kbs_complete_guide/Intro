@@ -1,0 +1,17 @@
+Docker:
+=========
+
+- Makes really easy to install and run software without worrying about the setup and dependencies.
+- Docker Image (single file with all deps and config ) run in the Docker container(instance of image to run the image).
+- Docker is a platform or ecosystem around creating and running containers.
+
+
+
+Namespace:
+   - Isolating resources per process or group of processes.
+   - isolates like (processes, harddrive, network, hostnames etc)
+Control groups:
+   - Limit the amount of resouces used per process such as memory , cpu usage , network bandwidth
+
+
+
