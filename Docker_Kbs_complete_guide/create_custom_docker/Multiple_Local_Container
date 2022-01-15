@@ -1,0 +1,34 @@
+-> if we have local db running in all container, then data will not be consistent.
+-> so db has to run separately for consistent response.
+-> to connect from one container to another container, we need to setup some network between two container.
+-> two option to connect container:
+    - use the network feature
+    - Docker Compose
+
+Docker Compose:
+===============
+
+- separate tool gets installed along with docker
+- used to start multiple docker container at the same time.
+- automates some of the long-winded arguments we were passing to "docker run"
+
+- to create docker compose we have to create new file called "docker-compose.yml"
+- all the docker cli command which we ran will put into this file.
+
+- when create muiltiple container using docker compose , it will automaticaly establish the network
+  connectivity between those container.
+
+- no port mapping is required to connect between two container.
+
+- we can refer the other container using the "label" mentioned in the docker-compose.yml file.
+  "https://redis-server" is the host name of redis container.
+
+- Sample docker-compose.yml file
+version: '3'
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    build: .
+    ports:
+      - '4001:8081'

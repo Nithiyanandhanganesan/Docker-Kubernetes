@@ -53,6 +53,33 @@ docker exec -it <container> sh
    -> we can also run interactive (it) flag in docker run command . eg: docker run -it busybox sh
 
 
+COPY path-to-file-localfs path-to-file-container
+   -> Copy Files from machine to Docker Image/Container
+   -> Above command persent in the docker file
+   -> eg: COPY ./ ./
+   -> sample docker file
+       FROM node:alpine
+       WORKDIR /usr/app
+       COPY ./ ./
+       RUN npm install
+       CMD ["npm", "start"]
 
-CREATING CUSTOM DOCKER IMAGES:
-================================
+
+docker run -p currentmachineport:containerport <imageid>
+   -> maps the local machine port to container port
+   -> eg: docker run -p 8080:8080 <imageid>
+   -> port mapping should be specified at run time not at docker file.
+
+
+Docker compose:
+=================
+
+"docker run myimage" is equal to "docker-compose up"
+
+"docker build . && docker run myimage" is equal to "docker-compose up --build"
+
+docker-compose down
+   - stop all running container
+
+docker-compose ps
+   - get all running containers.

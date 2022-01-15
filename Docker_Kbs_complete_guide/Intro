@@ -15,3 +15,13 @@ Control groups:
 
 
 
+Creating custom docker file:
+==============================
+
+  - create the docker file
+    - specify base image
+    - run some commands to install additional programs
+    - specify command to run on container startup
+  - build usable image
+  - run the image in docker container.
+

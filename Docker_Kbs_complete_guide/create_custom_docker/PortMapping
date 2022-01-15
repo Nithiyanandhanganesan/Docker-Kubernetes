@@ -1,0 +1,9 @@
+-> localhost:8080 is reference to current machine.
+-> to get the container traffic, we have to route the port to current machine.
+-> port mapping helps to route the traffic from current machine on particular port to specific port on the
+   container.
+
+-> port mapping is only for incoming traffic
+-> container can connect to any machine for outgoing traffic through internet.
+
+docker run -p 8080:8080 <imageid>

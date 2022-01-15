@@ -1,0 +1,59 @@
+Goal:
+  - create image that runs redis-server
+
+
+- mkdir redis-image
+- cd redis-image
+- vi Dockerfile
+
+#########################################################
+Sample Dockerfile Explanation:
+
+#use and existing docker
+#First command always telling Docker Server
+#FROM tells base image
+#
+FROM alpine
+
+
+# Step 2: Download and install dependency
+#RUN used to execute some command while building custom image.
+RUN apk add --update redis
+
+# Step 3: Tell the image what to do when it starts as container
+#CMD tell what we should execute when running the container
+CMD ["redis-server"]
+
+#########################################################
+
+Run the below command where dockerfile is there to build the docker image:
+
+- docker build .
+
+Run the below command to run the built docker file
+
+- docker run 4d7767c57e3071358b4fc82e5e2cac9d0513c2265ca38892fac4e54ca87309b8
+
+#########################################################
+
+Tagging Image:
+================
+
+ - When we build the image, it gives some random id to the image
+ - it will be difficult to store. if we lost the random id, then we have to re-build.
+ - so , we can give custom name to the image.
+ - Command:
+      docker build -t yourdockerid/projectname:version .
+      eg: docker build -t nithiyanandhan/redis-server-test:latest .
+
+ - run the image using below command:
+      docker run nithiyanandhan/redis-server-test:latest
+
+
+Restart policies:
+==================
+
+no             - never attempt to restart this container
+always         - always attempt to restart in case if container stops for any reason.
+on-failure     - only restart if container stops with error code
+unless-stopped - alwasy restart unless we(develops) forcibly stops
